@@ -11,7 +11,7 @@ function resetJobs(){
 
 describe("get jobs", function(){
    it("should never be empty since jobs are seeded", function(done){
-       mongoose.connect('mongodb://localhost/jobfinder', function(){
+       mongoose.connect('mongodb://quoteuser:Monday1$@ds259105.mlab.com:59105/quotedb', function(){
            resetJobs()
            .then(jobModel1.seedJobs)
            .then(function(){
