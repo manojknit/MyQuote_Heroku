@@ -16,8 +16,10 @@ describe("get jobs", function(){
            .then(jobModel1.seedJobs)
            .then(function(){
                    mongoose.model('Job').find({}).exec(function(error, jobList){
-                    expect(jobList.length).to.be.at.least(0);
-                    done();
+                       setTimeout(function() {
+                            expect(jobList.length).to.be.at.least(0);
+                            done();
+                       }, 1000);
                     });
                });
            });
