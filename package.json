@@ -9,6 +9,7 @@
   "author": "Manoj Kumar",
   "license": "ISC",
   "dependencies": {
+    "angular-resource": "^1.6.6",
     "express": "^4.16.2",
     "jade": "^1.11.0",
     "mongoose": "^4.13.1"
