@@ -1,20 +1,22 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongo = require('./mongo');
+//var mongo = require('./mongo');
 
-var index = require('./routes/index');
-var quote = require('./routes/quote');
+var indexmodel = require('./routes/index');
+var quotemodel = require('./routes/quote');
+var usermodel = require('./routes/user');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', 6565);
+//app.set('port', 6565);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,8 +26,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/quote', quote);
+app.get('/api/quotes', function(req, res){
+  //res.send('test');
+  mongoose.model('quote_table').find({}).exec(function(error, collection){
+      res.send(collection);
+  })
+})
+
+app.use('/', indexmodel);
+// app.get('/', function(req, res) {
+//   res.render('index', { user: 'req.user' });//TBD
+// });
+app.use('/quote', quotemodel);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,9 +57,31 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-mongo.connect(function (db) {
-  db.close();
-  app.listen(app.get('port'), function (req, res) {
-      console.log("Server Started On Port: " + app.get('port'));
-  });
+// mongo.connect(function (db) {
+//   db.close();
+//   app.listen(app.get('port'), function (req, res) {
+//       console.log("Server Started On Port: " + app.get('port'));
+//   });
+// });
+
+
+//mongoose.connect('mongodb://localhost:27017/mydb'); //For local db connection
+mongoose.connect('mongodb://quoteuser:Monday1$@ds259105.mlab.com:59105/quotedb');
+
+var con = mongoose.connection;
+con.once('open', function(){
+    console.log('connection to mongodb successfully!');
+    usermodel.seedUsers();
+    //quotemodel.seedQuotes();
 });
+
+// If the Node process ends, close the Mongoose connection 
+process.on('SIGINT', function() {  
+  mongoose.connection.close(function () { 
+    console.log('Mongoose default connection disconnected through app termination'); 
+    process.exit(0); 
+  }); 
+}); 
+
+//app.listen(process.env.PORT,process.env.IP);
+app.listen(3000);

@@ -2,7 +2,8 @@ var MongoClient = require('mongodb').MongoClient
     , assert = require('assert');
 
 // Connection URL
-var url = 'mongodb://localhost:27017/mydb';
+//var url = 'mongodb://localhost:27017/mydb';
+var url = 'mongodb://quoteuser:Monday1$@ds259105.mlab.com:59105/quotedb';
 
 // Use connect method to connect to the Server
 var connect = function (cb) {
