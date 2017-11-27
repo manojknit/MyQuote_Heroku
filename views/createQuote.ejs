@@ -16,14 +16,78 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+  <script src="../app/createquote.js"></script>
 </head>
-  <body>
+  <body ng-app="myApp" ng-controller="createquoteController">
 
     <div class='container'>
-      <h1>Create a Quote</h1>
-    
-      
+      <h1>Quote Info</h1>
+      <!-- <h2>{{quote}} and {{role}} and {{quote.quote_id}}</h2> -->
+      <!-- display template -->
+      <div ng-if="role!='sales'"> 
+          <h4>Quote Detail</h4>
+          <hr />
+          <dl class="dl-horizontal" ng-repeat="quote in quote">
+              <dt>
+                    <span>Quote Id</span>
+              </dt>
+              <dd>
+                    {{quote.quote_id}}{{role}}
+              </dd>
+              <dt>
+                    <span>Quote Name</span>
+              </dt>
+              <dd>
+                    {{quote.quote_name}}
+              </dd>
+              <dt>
+                    <span>date requested</span>
+              </dt>
+              <dd>
+                    {{quote.date_requested}}
+              </dd>
+              <dt>
+                    <span>Product To Buy</span>
+              </dt>
+              <dd>
+                    {{quote.product_to_buy}}
+              </dd>
+              <dt>
+                    <span>Requested Price</span>
+              </dt>
+              <dd>
+                    {{quote.product_requested_price}}
+              </dd>
+              <dt>
+                    <span>Approved Price</span>
+              </dt>
+              <dd>
+                    {{quote.product_approved_price}}
+              </dd>
+              <dt>
+                    <span>Status</span>
+              </dt>
+              <dd>
+                    {{quote.quote_status}}
+              </dd>
+              <dt>
+                    
+              </dt>
+              <dd>
+                   <a class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok" style="color:white; margin-right:5px;" aria-hidden="true"></span>Approve</a>
+                   <a class="btn btn-danger"  href="#"><span class="glyphicon glyphicon-remove" style="color:white; margin-right:5px;" aria-hidden="true"></span>Reject</a>
+                   <a class="btn btn-primary"  href="#"><span class="glyphicon glyphicon-shopping-cart" style="color:white; margin-right:5px;" aria-hidden="true"></span>Order</a>
+                   <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+              </dd>
+          </dl>
+      </div>
+
+    <!-- Edit template -->
+    <div ng-show="role=='sales'"> 
+            <h4>Quote Detail</h4>
+            <hr />
       <form action='/quote/create' method='post'>
         
         <div class="form-group">
@@ -41,11 +105,13 @@
           <input type="text" name="qprice" class="form-control" id="qprice" placeholder="Price">
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <!-- <a  type="submit" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok" style="color:white; margin-right:5px;" aria-hidden="true"></span>Submit</a> -->
+        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
 
       </form>
-
     </div>
+</div>
 
 </body>
 </html>

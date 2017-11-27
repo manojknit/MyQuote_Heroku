@@ -25,12 +25,17 @@
 <body ng-app="myApp" ng-controller="myController">
     <div class="container">
         <div class="alert alert-success" role="alert">If you see "Hello World" below, then Well Done! you have successfully set up the MEAN Stack</div>
-        <h2>{{ msg }}</h2>
+        <h2>{{ title }}</h2>
        
 
         <table class="table">
             <thead>
-                <tr><td colspan="8" style="text-align:right;"><a href="/quote/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a></td></tr>
+                <tr>
+                    <td colspan="8" style="text-align:right;">
+                        <a href="/quote/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a>
+                        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-equalizer" style="color:white; margin-right:5px;" aria-hidden="true"></span>Report</a>
+                    </td>
+                </tr>
                 <tr class="active">
                     <th>
                         <span>quote id</span>
@@ -59,8 +64,12 @@
             <tbody>
              
                     <tr ng-repeat="quote in quotes">
-                        <td style="width:10%">{{quote.quote_id}}</td>
-                        <td style="width:10%">{{quote.quote_name}}</td>
+                        <td style="width:10%">
+                            {{quote.quote_id}}
+                        </td>
+                        <td style="width:10%">
+                            {{quote.quote_name}}
+                        </td>
                         <td style="width:20%">
                             {{quote.date_requested}}
                         </td>
@@ -80,7 +89,7 @@
                             <table>
                                 <tr>
                                     
-                                    <td><a class="btn btn-primary"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
+                                    <td><a class="btn btn-primary" href="/quote/create?q={{quote.quote_id}}&action=display"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
                                   
                                 </tr>
                             </table>
