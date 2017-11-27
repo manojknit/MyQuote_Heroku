@@ -19,17 +19,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
     <script src="app/app.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
     <div class="container">
         <div class="alert alert-success" role="alert">If you see "Hello World" below, then Well Done! you have successfully set up the MEAN Stack</div>
         <h2>{{ msg }}</h2>
-        <a href="/quote/create">CreateQuote</a>
+       
 
         <table class="table">
             <thead>
-                <tr><td colspan="8" style="text-align:right;"><a asp-action="Create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a></td></tr>
+                <tr><td colspan="8" style="text-align:right;"><a href="/quote/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a></td></tr>
                 <tr class="active">
                     <th>
                         <span>quote id</span>
