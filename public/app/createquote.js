@@ -1,7 +1,7 @@
 
 angular.module('myApp', ['ngResource']);
 angular.module('myApp').controller('createquoteController',function($scope, $resource, $location) {
-        $scope.role = "sales";  //This is role which can be changed to - pm or sales
+        $scope.role = "pm";  //This is role which can be changed to - pm or sales
         var quoteid = $location.search().q;
         $scope.quote = $resource('/api/quotes/:quoteid').query();
         console.log('JSON created: ' + $scope.quote); 

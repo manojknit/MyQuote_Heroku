@@ -85,8 +85,13 @@ process.on('SIGINT', function() {
 
 //app.listen(process.env.PORT,process.env.IP);
 //app.listen(process.env.PORT||3000);
-app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
+// var server = app.listen(app.get('port'), function() {
+//   console.log('Express server listening on port ' + server.address().port);
+// });
+
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log('Our app is running on http://localhost:' + port);
 });
