@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require("mongoose");
 var router = express.Router();
 var path = require('path');
+var express = require('express');
 
 
 
@@ -48,12 +49,12 @@ router.post('/create', function(req, res, next) {
 
 	
 	var day  = Date.now();
-
+	var quoteidunique = Date.now();
 
 	//seedQuotes();
 	//var doc = {"qname" : qname, "qproduct" : qproduct, "qprice" : qprice};
 	//var rowDoc =  {"quote_id":'1', "quote_name":qname,  "request_by_user":'manoj', "product_to_buy":qproduct, product_requested_price: qprice };
-	var rowDoc =  {quote_id:1, quote_name:qname, date_requested: day, request_by_user:'manoj', valid_from:day, valid_to:day, product_to_buy:qproduct, product_requested_price: qprice, product_approved_price: 0, comment:'my comment', quote_status: 'Submit', approved_date: day, token:'' };
+	var rowDoc =  {quote_id:quoteidunique, quote_name:qname, date_requested: day, request_by_user:'manoj', valid_from:day, valid_to:day, product_to_buy:qproduct, product_requested_price: qprice, product_approved_price: 0, comment:'my comment', quote_status: 'Submit', approved_date: day, token:'' };
 	
 	quotetb.create(rowDoc, function(err, team) { 
 		var strOutput; 
