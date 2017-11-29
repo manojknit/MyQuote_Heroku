@@ -101,9 +101,9 @@ router.post('/update', function(req, res, next) {
 		  console.log(err); 
 		  strOutput = 'Oh problem, we\'ve got an error'+ err; 
 		} else { 
-		  console.log('Team created: ' + team); 
-		  strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn; 
-		  strOutput = 'Successfully submitted.';
+		  //console.log('Team created: ' + team); 
+		 // strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn; 
+		  strOutput = 'Successfully updated.';
 		} 
 		res.write(strOutput); 
 		res.end(); 
