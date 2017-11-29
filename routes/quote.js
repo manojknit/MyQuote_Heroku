@@ -11,6 +11,10 @@ router.get('/create', function(req, res, next) {
 	console.log("create Quote");
   	res.render('createQuote',{});
 });
+router.get('/update', function(req, res, next) {
+	console.log("create Quote");
+  	res.render('createQuote',{});
+});
 
 var quoteTbSchema = new mongoose.Schema({
 	quote_id:{type:Number},
@@ -98,7 +102,7 @@ router.post('/update', function(req, res, next) {
 		  strOutput = 'Oh problem, we\'ve got an error'+ err; 
 		} else { 
 		  console.log('Team created: ' + team); 
-		  //strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn; 
+		  strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn; 
 		  strOutput = 'Successfully submitted.';
 		} 
 		res.write(strOutput); 

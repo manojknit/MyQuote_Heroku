@@ -10,7 +10,7 @@ angular.module('myApp').controller('createquoteController',function($scope, $res
         $scope.quoteid = quoteid;
         var actiontype = '/quote/create';
         if(quoteid != null)
-            actiontype = "update";
+            actiontype = '/quote/update';
         $scope.actionUrl = actiontype;
         $scope.quote = $resource('/api/quotes/:quoteid').query();
         console.log('JSON created: ' + $scope.quote); 
