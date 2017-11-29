@@ -24,7 +24,7 @@
 
     <div class='container'>
       <h1>Quote Info</h1>
-      <!-- <h2>{{quote}} and {{role}} and {{quote.quote_id}}</h2> -->
+         <!-- <h2>{{quote}} and {{role}} and {{quote.quote_id}}</h2> -->
       <!-- display template -->
       <div ng-if="role!='sales'"> 
           <h4>Quote Detail</h4>
@@ -34,7 +34,7 @@
                     <span>Quote Id</span>
               </dt>
               <dd>
-                    {{quote.quote_id}}{{role}}
+                    {{quote.quote_id}}
               </dd>
               <dt>
                     <span>Quote Name</span>
@@ -88,7 +88,12 @@
     <div ng-show="role=='sales'"> 
             <h4>Quote Detail</h4>
             <hr />
-      <form action='/quote/create' method='post'>
+      <form action="{{ actionUrl }}" method='post'>
+                  <!-- <h1>"'/quote/{{actiontype}}'"{{quoteid}}</h1> -->
+      <div class="form-group">
+            <label for="qname">Quote Id</label>
+            <input type="text" name="qid" class="form-control" id="qid" value='{{quoteid}}' readonly>
+      </div>
         
         <div class="form-group">
             <label for="qname">Name</label>

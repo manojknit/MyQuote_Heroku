@@ -75,4 +75,36 @@ router.post('/create', function(req, res, next) {
 	
 });
 
+router.post('/update', function(req, res, next) {
+	var qid = req.body.qid;
+	var qname = req.body.qname;
+	var qproduct = req.body.qproduct;
+	var qprice = req.body.qprice;
+
+	
+	var day  = Date.now();
+	var quoteidunique = Date.now();
+
+	quotetb.findOneAndUpdate({
+		   deviceId:qid,
+			},{$set:{quote_name:qname,product_to_buy:qproduct,product_requested_price:qprice}},function(err, user) {
+	
+		var strOutput; 
+		res.writeHead(200, { 
+		  'Content-Type': 'text/plain'
+		}); 
+		if (err) { 
+		  console.log(err); 
+		  strOutput = 'Oh problem, we\'ve got an error'+ err; 
+		} else { 
+		  console.log('Team created: ' + team); 
+		  //strOutput = team.Country + ' created in Group ' + team.GroupName + '\nat ' + team.CreatedOn; 
+		  strOutput = 'Successfully submitted.';
+		} 
+		res.write(strOutput); 
+		res.end(); 
+	  }); 
+	
+});
+
 module.exports = router;

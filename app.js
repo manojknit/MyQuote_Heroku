@@ -32,6 +32,14 @@ app.get('/api/quotes', function(req, res){
       res.send(collection);
   })
 })
+// app.get('/api/quotes:quote_id', function(req, res){
+//   //res.send('test');
+//   mongoose.model('quote_table').findById(req.params.quote_id, function(error, collection){
+//     if (err)
+//     res.send(err);
+//       res.send(collection);
+//   })
+// })
 
 app.use('/', indexmodel);
 // app.get('/', function(req, res) {
