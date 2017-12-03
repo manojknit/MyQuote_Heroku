@@ -18,7 +18,8 @@ exports.creds = {
 	responseMode: 'form_post', 
   
 	// Required, the reply URL registered in AAD for your app
-	redirectUrl: 'http://localhost:8080/auth/openid/return',//'http://localhost:3000/auth/openid/return', 
+    redirectUrl: 'http://localhost:8080/auth/openid/return',//'http://localhost:3000/auth/openid/return', 
+    //redirectUrl: 'https://fierce-oasis-28208.herokuapp.com/auth/openid/return',
   
 	// Required if we use http for redirectUrl
 	allowHttpForRedirectUrl: true,
@@ -77,6 +78,7 @@ exports.creds = {
   
   // The url you need to go to destroy the session with AAD
   exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http://localhost:8080';
+//  exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=https://fierce-oasis-28208.herokuapp.com';
   
   // If you want to use the mongoDB session store for session middleware; otherwise we will use the default
   // session store provided by express-session.
