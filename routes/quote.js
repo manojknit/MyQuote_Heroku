@@ -7,14 +7,14 @@ var express = require('express');
 
 
 /* GET home page. */
-router.get('/create', function(req, res, next) {
-	console.log("create Quote");
-  	res.render('createQuote',{});
-});
-router.get('/update', function(req, res, next) {
-	console.log("create Quote");
-  	res.render('createQuote',{});
-});
+// router.get('/create', function(req, res, next) {
+// 	console.log("create Quote");
+//   	res.render('createQuote',{});
+// });
+// router.get('/update', function(req, res, next) {
+// 	console.log("create Quote");
+//   	res.render('createQuote',{});
+// });
 
 var quoteTbSchema = new mongoose.Schema({
 	quote_id:{type:Number},

@@ -7,7 +7,7 @@ var path = require('path');
 router.get('/', function(req, res, next) {
   // res.renderFile(path.join(__dirname, '..', 'public', 'index.html'));
   // res.send("<html><head></head><body><p>Hello</p></body></html>");
-  res.render('index',{});
+  res.render('index', { });
 });
 
 module.exports = router;

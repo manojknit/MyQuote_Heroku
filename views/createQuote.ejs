@@ -97,17 +97,17 @@
         
         <div class="form-group">
             <label for="qname">Name</label>
-            <input type="text" name="qname" class="form-control" id="qname" placeholder="Name">
+            <input type="text" name="qname" class="form-control" id="qname" value='{{quote.quote_name}}'>
         </div>
 
         <div class="form-group">
           <label for="qname">Product Name</label>
-          <input type="text" name="qproduct" class="form-control" id="qproduct" placeholder="Product">
+          <input type="text" name="qproduct" class="form-control" id="qproduct" value='{{quote.product_to_buy}}' placeholder="Product">
         </div>
 
         <div class="form-group">
           <label for="qprice">Quote Price</label>
-          <input type="text" name="qprice" class="form-control" id="qprice" placeholder="Price">
+          <input type="text" name="qprice" class="form-control" id="qprice" value='{{quote.product_requested_price}}' placeholder="Price">
         </div>
 
         <button type="submit" class="btn btn-success">Submit</button>

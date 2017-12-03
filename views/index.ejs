@@ -1,32 +1,136 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MEAN Index</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
+    <script src="app/app.js"></script>
 </head>
-  <body>
+<body ng-app="myApp" ng-controller="myController" id="page-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top bg-secondary">
+          <div class="container">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="font-family:'Bauhaus 93'; font-size:50px">CloudJibe</a>
+              </div>
+              <div class="navbar-collapse collapse">
+                  <% if (user) { %>
+                  <ul class="nav navbar-nav">
+                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#home">Home</a></li>
+                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#compute">Report</a></li>
+                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#suport">Support</a></li>
+                  </ul>
+                  
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="navbar-text">Welcome <%= user.displayName %>.</li>
+                          <!-- <a href="/account">Account Info</a> -->
+                          <li><a href="/logout">Sign out</a></li>
+                      </ul>
+                      <% } else { %>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li><h3><a href="/login">Sign in</a></h3></li>
+                      </ul>
+                      <% } %>
+              </div>
+          </div>
+      </nav>
+      <% if (user) { %>
+      <div class='container'>
+        <h2>{{ title }}</h2>
+       
 
-    <div>
-      <h1>Home Page</h1>s
+        <table class="table">
+            <thead>
+                <tr>
+                    <td colspan="8" style="text-align:right;">
+                        <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a>
+                        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-equalizer" style="color:white; margin-right:5px;" aria-hidden="true"></span>Report</a>
+                    </td>
+                </tr>
+                <tr class="active">
+                    <th>
+                        <span>quote id</span>
+                    </th>
+                    <th>
+                        <span>quote name</span>
+                    </th>
+                    <th>
+                        <span>date requested</span>
+                    </th>
+                    <th>
+                        <span>Product To Buy</span>
+                    </th>
+                    <th>
+                        <span>Requested Price</span>
+                    </th>
+                    <th>
+                        <span>Approved Price</span>
+                    </th>
+                    <th>
+                        <span>Status</span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+             
+                    <tr ng-repeat="quote in quotes">
+                        <td style="width:10%">
+                            {{quote.quote_id}}
+                        </td>
+                        <td style="width:10%">
+                            {{quote.quote_name}}
+                        </td>
+                        <td style="width:20%">
+                            {{quote.date_requested}}
+                        </td>
+                        <td style="width:10%">
+                            {{quote.product_to_buy}}
+                        </td>
+                        <td style="width:10%">
+                            {{quote.product_requested_price}}
+                        </td>
+                        <td>
+                            {{quote.product_approved_price}}
+                        </td>
+                        <td style="width:20%">
+                            {{quote.quote_status}}
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    
+                                    <td><a class="btn btn-primary" href="/create?quoteid={{quote.quote_id}}&action=display"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
+                                  
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+              
+            </tbody>
+        </table>
     </div>
-
-   
-  <!-- <div class="page-header">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
-      </div>
-      <div class="col-md-4" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-
-      </div>
-    </div>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="user in pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
-      <p class="list-group-item-text" ng-bind="user.email"></p>
-    </a>
-  </div> -->
-
+    <% } %>
 </body>
 </html>
