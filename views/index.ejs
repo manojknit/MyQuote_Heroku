@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.min.js"></script>
     <script src="app/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="app/css/custom.css">
 </head>
 <body ng-app="myApp" ng-controller="myController" id="page-top">
   <nav class="navbar navbar-inverse navbar-fixed-top bg-secondary">
@@ -121,7 +122,7 @@
                             <table>
                                 <tr>
                                     
-                                    <td><a class="btn btn-primary" href="/create?quoteid={{quote.quote_id}}&action=display"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
+                                    <td><a class="btn btn-primary" href="create?quoteid={{quote.quote_id}}&action=display"><span class="glyphicon glyphicon-th-list" style="color:white; margin-right:5px;" aria-hidden="true"></span>Details</a> </td><td><span style="margin-right:5px;"></span></td>
                                   
                                 </tr>
                             </table>
@@ -131,6 +132,10 @@
             </tbody>
         </table>
     </div>
+    <% } else { %>
+        <div class="bg">
+                <a href="/login" class="centerscr btn btn-primary btn-lg round">Sign in</a>
+          </div>
     <% } %>
 </body>
 </html>

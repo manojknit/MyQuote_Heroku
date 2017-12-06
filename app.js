@@ -234,7 +234,7 @@ app.get('/api/quotes', function(req, res){
 // app.get('/', function(req, res) {
 //   res.render('index', { user: 'req.user' });//TBD
 // });
-//app.use('/quote', quotemodel);
+app.use('/quote', ensureAuthenticated, quotemodel);
 
 app.get('/', function(req, res) {
   res.render('index', { user: req.user });

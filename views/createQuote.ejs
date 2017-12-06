@@ -86,7 +86,7 @@
 
     <!-- Edit template -->
     <div ng-show="role=='sales'"> 
-            <h4>Quote Detail</h4>
+            <h4>Quote Detail-</h4>
             <hr />
       <form action="{{ actionUrl }}" method='post'>
                   <!-- <h1>"'/quote/{{actiontype}}'"{{quoteid}}</h1> -->
@@ -97,22 +97,22 @@
         
         <div class="form-group">
             <label for="qname">Name</label>
-            <input type="text" name="qname" class="form-control" id="qname" value='{{quote.quote_name}}'>
+            <input type="text" name="qname" class="form-control" id="qname" value='{{quote.quote_name}}' readonly>
         </div>
 
         <div class="form-group">
           <label for="qname">Product Name</label>
-          <input type="text" name="qproduct" class="form-control" id="qproduct" value='{{quote.product_to_buy}}' placeholder="Product">
+          <input type="text" name="qproduct" class="form-control" id="qproduct" value='{{quote.product_to_buy}}' placeholder="Product" readonly>
         </div>
 
         <div class="form-group">
           <label for="qprice">Quote Price</label>
-          <input type="text" name="qprice" class="form-control" id="qprice" value='{{quote.product_requested_price}}' placeholder="Price">
+          <input type="text" name="qprice" class="form-control" id="qprice" value='{{quote.product_requested_price}}' placeholder="Price" readonly>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success" style="display: none;">Submit</button>
         <!-- <a  type="submit" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok" style="color:white; margin-right:5px;" aria-hidden="true"></span>Submit</a> -->
-        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+        <a class="btn btn-primary" ng-href="/"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
 
       </form>
     </div>
