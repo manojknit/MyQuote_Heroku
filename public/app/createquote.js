@@ -3,17 +3,18 @@ angular.module('myApp', ['ngResource']);
 angular.module('myApp').controller('createquoteController',function($scope, $resource, $location, $http) {
         $scope.role = "sales";  //This is role which can be changed to - pm or sales
 
+        keyhalf ="CPPvh1zzOfRddpTc";
         var absUrl = $location.absUrl();
         var url = new URL(absUrl);
         var quoteid = url.searchParams.get("quoteid");
-
+        var appendapi = "duEozg9yLd3Xpr"
         $scope.quoteid = quoteid;
         var actiontype = '/quote/create';
         if(quoteid != null)
             actiontype = '/quote/update';
         $scope.actionUrl = actiontype;
-        var API_Key = "";
-        var urlQuery = "https://api.mlab.com/api/1/databases/quotedb/collections/quote_tables?q={'quote_id':"+quoteid+"}&apiKey="+API_Key; 
+        var API_sec = appendapi+keyhalf;
+        var urlQuery = "https://api.mlab.com/api/1/databases/quotedb/collections/quote_tables?q={'quote_id':"+quoteid+"}&apiKey="+API_sec; 
         //var urlQuery = '/api/quotes/:quoteid';
         //$scope.quote = $resource(urlQuery).query();
         //https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd   rest

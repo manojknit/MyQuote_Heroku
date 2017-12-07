@@ -33,13 +33,13 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="font-family:'Bauhaus 93'; font-size:50px">CloudJibe</a>
+                  <a href="/" class="navbar-brand" style="font-family:'Bauhaus 93'; font-size:50px">CloudJibe</a>
               </div>
               <div class="navbar-collapse collapse">
                   <% if (user) { %>
                   <ul class="nav navbar-nav">
-                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#home">Home</a></li>
-                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#compute">Report</a></li>
+                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Home</a></li>
+                          <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tableau">Report</a></li>
                           <li><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#suport">Support</a></li>
                   </ul>
                   
@@ -65,8 +65,8 @@
             <thead>
                 <tr>
                     <td colspan="8" style="text-align:right;">
-                        <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a>
-                        <a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-equalizer" style="color:white; margin-right:5px;" aria-hidden="true"></span>Report</a>
+                        <a href="/create" class="btn btn-success"><span class="glyphicon glyphicon-plus" style="color:white; margin-right:5px;" aria-hidden="true"></span>Create New</a>
+                        <a class="btn btn-primary" href="/tableau"><span class="glyphicon glyphicon-equalizer" style="color:white; margin-right:5px;" aria-hidden="true"></span>Report</a>
                     </td>
                 </tr>
                 <tr class="active">

@@ -248,6 +248,9 @@ app.get('/account', ensureAuthenticated, function(req, res) {
 app.get('/create', ensureAuthenticated, function(req, res) {
   res.render('createQuote', { user: req.user });
 });
+app.get('/tableau', ensureAuthenticated, function(req, res) {
+  res.render('tableau', { user: req.user });
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

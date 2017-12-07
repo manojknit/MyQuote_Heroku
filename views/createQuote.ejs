@@ -97,23 +97,28 @@
         
         <div class="form-group">
             <label for="qname">Name</label>
-            <input type="text" name="qname" class="form-control" id="qname" value='{{quote.quote_name}}' readonly>
+            <input type="text" name="qname" class="form-control" id="qname" value='{{quote.quote_name}}' placeholder="Quote Desc" >
         </div>
 
         <div class="form-group">
           <label for="qname">Product Name</label>
-          <input type="text" name="qproduct" class="form-control" id="qproduct" value='{{quote.product_to_buy}}' placeholder="Product" readonly>
+          <input type="text" name="qproduct" class="form-control" id="qproduct" value='{{quote.product_to_buy}}' placeholder="Product" >
         </div>
 
         <div class="form-group">
           <label for="qprice">Quote Price</label>
-          <input type="text" name="qprice" class="form-control" id="qprice" value='{{quote.product_requested_price}}' placeholder="Price" readonly>
+          <input type="text" name="qprice" class="form-control" id="qprice" value='{{quote.product_requested_price}}' placeholder="Price" >
         </div>
 
-        <button type="submit" class="btn btn-success" style="display: none;">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
         <!-- <a  type="submit" class="btn btn-success" href="#"><span class="glyphicon glyphicon-ok" style="color:white; margin-right:5px;" aria-hidden="true"></span>Submit</a> -->
+        
+        
         <a class="btn btn-primary" ng-href="/"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
-
+      </form>
+      <form action="/quote/pay" method="post">
+            <input type="hidden" name="approvedprice" id="approvedprice" value='{{quote.product_requested_price}}'>
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart" style="color:white; margin-right:5px;" aria-hidden="true"></span>Pay</button>
       </form>
     </div>
 </div>

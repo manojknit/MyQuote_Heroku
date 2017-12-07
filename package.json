@@ -23,6 +23,7 @@
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-azure-ad": "^3.0.8",
+    "paypal-rest-sdk": "^1.8.1",
     "rustify": "^1.0.2",
     "serve-favicon": "~2.4.5"
   },

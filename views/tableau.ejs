@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resizing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        var viz;
+        
+        function initViz() {
+            var containerDiv = document.getElementById("vizContainer"),
+                url = "https://public.tableau.com/views/Sales-PersonProfitSales_0/RegionProfitSales?:embed=y&:display_count=yes&publish=yes",
+                options = {
+                    hideTabs: true
+                };        
+            
+            viz = new tableau.Viz(containerDiv, url, options); 
+        }
+
+        function vizResize() {
+            var width = document.getElementById("resizeWidth").value;
+            var height = document.getElementById("resizeHeight").value;
+
+            viz.setFrameSize(parseInt(width, 10), parseInt(height, 10));
+        }
+
+        
+    </script>
+</head>
+
+<body onload="initViz();">
+    <h1>Tableau</h1>
+    <a class="btn btn-primary" href="/"><span class="glyphicon glyphicon-arrow-left" style="color:white; margin-right:5px;" aria-hidden="true"></span>Back to List</a>
+    <div id="vizContainer" style="width:800px; height:700px; overflow:auto;"></div>
+    <div id="controls" style="padding:20px;">
+        <form id="resizeForm">
+            <input type="text" id="resizeWidth" placeholder="Width">
+            <input type="text" id="resizeHeight" placeholder="Height">
+            <button type="button" onClick="vizResize();">Resize</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
