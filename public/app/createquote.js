@@ -3,7 +3,7 @@ angular.module('myApp', ['ngResource']);
 angular.module('myApp').controller('createquoteController',function($scope, $resource, $location, $http) {
         $scope.role = "sales";  //This is role which can be changed to - pm or sales
 
-        keyhalf ="CPPvh1zzOfRddpTc";
+        keyhalf ="CPPvh1zzOfRddpTcRM";
         var absUrl = $location.absUrl();
         var url = new URL(absUrl);
         var quoteid = url.searchParams.get("quoteid");
