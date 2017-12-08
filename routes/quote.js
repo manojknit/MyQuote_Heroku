@@ -125,8 +125,8 @@ router.post('/pay', function(req, res, next) {
 				"payment_method": "paypal"
 		},
 		"redirect_urls": {
-				"return_url": "https://fierce-oasis-28208.herokuapp.com/success", //"http://localhost:3000/success",
-				"cancel_url": "https://fierce-oasis-28208.herokuapp.com/cancel", //"http://localhost:3000/cancel"
+				"return_url": "https://fierce-oasis-28208.herokuapp.com/quote/success", //"http://localhost:3000/success",
+				"cancel_url": "https://fierce-oasis-28208.herokuapp.com/quote/cancel", //"http://localhost:3000/cancel"
 		},
 		"transactions": [{
 				"item_list": {
