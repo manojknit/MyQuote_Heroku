@@ -77,8 +77,8 @@ exports.creds = {
   exports.resourceURL = 'https://graph.windows.net';
   
   // The url you need to go to destroy the session with AAD
-  exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http://localhost:8080';
-//  exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=https://fierce-oasis-28208.herokuapp.com';
+//  exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=http://localhost:8080';
+  exports.destroySessionUrl = 'https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=https://fierce-oasis-28208.herokuapp.com';
   
   // If you want to use the mongoDB session store for session middleware; otherwise we will use the default
   // session store provided by express-session.
